@@ -1,1 +1,88 @@
 // scss
+$padbodyfoot: 0 15px;
+$color-primary: #9356DC;
+$color-secondary: #FF79DA;
+$color-tertiary: #99E2D0;
+$dark-grey: #eaeaea;
+$light-grey: #f7f7f7;
+$police-title: Shrikhand;
+$police-text: Roboto;
+
+@media screen and (max-width: 800px) {
+    * {
+        scroll-behavior: smooth;
+        box-sizing: border-box;
+    }
+
+    .container {
+        margin: 0 auto;
+        padding: $padbodyfoot;
+    }
+
+    /****************Header****************/
+
+    .heading {
+        display: flex;
+        justify-content: center;
+        padding: 20px 0;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 10px;
+
+        &__logo {
+            height: 30px;
+        }
+    }
+
+    /****************Body****************/
+
+    .location {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        background-color: $dark-grey;
+        gap: 15px;
+
+        &__icone {
+            display: flex;
+            justify-content: center;
+            align-content: flex-end;
+        }
+
+        &__text {
+            margin-right: 8%;
+            font-family: $police-text;
+            flex-grow: 0;
+            display: flex;
+            justify-content: center;
+            align-content: center;
+        }
+    }
+
+    .introduction {
+        background-color: $light-grey;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 200px;
+        align-items: center;
+        align-content: center;
+
+        &__big-title {
+            text-align: center;
+        }
+
+        &__lit-title {
+            text-align: center;
+            width: 75%;
+            justify-self: center;
+        }
+
+        &__button {
+            width: 50%;
+        }
+    }
+
+
+
+
+}
