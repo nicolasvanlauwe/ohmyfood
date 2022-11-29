@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/main.scss:./public/css/style.css"
+    "sass": "sass --watch ./sass/main.scss:./public/css/style.css",
+    "prefix": "postcss ./public/css/style.css --use autoprefixer -d./public/css/prefixed/"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/nicolasvanlauwe/ohmyfood/issues"
   },
-  "homepage": "https://github.com/nicolasvanlauwe/ohmyfood#readme"
+  "homepage": "https://github.com/nicolasvanlauwe/ohmyfood#readme",
+  "browserslist": "last 4 versions"
 }
