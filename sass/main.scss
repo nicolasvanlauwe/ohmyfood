@@ -11,36 +11,36 @@ $police-text: Roboto;
 
 
 // MIXIN
-@mixin title1 {
-    font-size: 1.6rem;
-    font-weight: bold;
-    font-family: $police-text;
-    line-height: 2.2rem;
+
+@mixin font-parameters($size: 1rem, $weight: 400) {
+    font-size: $size;
+
+    @if ($weight !=400) {
+        font-weight: $weight;
+    }
 }
 
-@mixin button-primary {
-    background: rgb(255, 121, 218);
+@mixin button-primary ($p1: 17px, $p2: 20px) {
     background: linear-gradient(175deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 94%);
-    padding: 17px 20px;
+    padding: $p1 $p2;
     border-style: none;
     border-radius: 50px;
     color: white;
-    font-family: $police-text;
-    font-size: 1rem;
-    font-weight: 500;
+    @include font-parameters();
 }
 
+@mixin link ($color: black) {
+    text-decoration: none;
+    color: $color;
+}
 
 //STYLE
 
 * {
     scroll-behavior: smooth;
     box-sizing: border-box;
-}
-
-.container {
-    margin: 0 auto;
-    padding: $padbodyfoot;
+    font-family: Roboto;
+    letter-spacing: 0px;
 }
 
 .padding-main {
@@ -52,6 +52,7 @@ $police-text: Roboto;
 .heading {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: 20px 0;
     box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 5px;
     position: relative;
@@ -62,7 +63,7 @@ $police-text: Roboto;
     }
 }
 
-/****************Body****************/
+/****************Main****************/
 
 
 .location {
@@ -82,11 +83,10 @@ $police-text: Roboto;
 
     &__text {
         margin-right: 8%;
-        font-family: $police-text;
         display: flex;
         justify-content: center;
         align-content: center;
-        font-weight: bold;
+        @include font-parameters($weight: bold);
     }
 }
 
@@ -104,14 +104,14 @@ $police-text: Roboto;
     &__big-title {
         margin-bottom: 3%;
         width: 70%;
-        @include title1();
+        @include font-parameters($size: 1.6rem, $weight: 900);
+        line-height: 1.8rem;
     }
 
     &__lit-title {
         width: 85%;
         margin-bottom: 7%;
-        font-family: $police-text;
-        font-size: 1.2rem;
+        @include font-parameters($size: 1.2rem, $weight: 300);
         line-height: 1.3rem;
     }
 
@@ -124,7 +124,7 @@ $police-text: Roboto;
 .fonctionnement {
 
     &__title {
-        @include title1();
+        @include font-parameters($size: 1.5rem, $weight: 900);
     }
 
     &__allcard {
@@ -177,25 +177,193 @@ $police-text: Roboto;
 
 .restaurant {
     margin-top: 7%;
+    margin-bottom: 15%;
     background-color: $light-grey;
 
     &__title {
         padding-top: 13%;
-        @include title1();
+        margin-bottom: 6%;
+        @include font-parameters($size: 1.6rem, $weight: 800);
     }
 
     &__allcard {
         display: flex;
         flex-direction: column;
+        gap: 20px;
+    }
+
+    &__link {
+        @include link();
     }
 
     &__card {
-        height: 300px;
+        height: 260px;
         background-color: white;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 20px;
 
         &__img {
+            width: 100%;
             height: 70%;
-            object-fit: none;
+            object-fit: cover;
+            border-radius: 20px 20px 0px 0px;
+        }
+
+        &__contenu {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 10px;
+
+            &__title {
+                @include font-parameters($size: 1.2rem, $weight: bold)
+            }
+
+            &__text {
+                margin-top: 4%;
+                @include font-parameters($size: 1.1rem, $weight: 300)
+            }
+        }
+
+        &__icone {
+            font-size: 25px;
         }
     }
+}
+
+/****************Footer****************/
+
+.foot {
+
+    padding-bottom: 10%;
+    color: white;
+    background-color: #353535;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &__title {
+        margin: 7% 0% 4% 0%;
+        font-family: Shrikhand;
+        @include font-parameters($size: 1.3rem, $weight: 100)
+    }
+
+    &__link {
+        @include link(white);
+
+        &__icone {
+            font-size: 15px;
+            width: 20px;
+            margin-right: 2%;
+        }
+    }
+}
+
+/****************La palette du gout****************/
+
+.principal--restaurant {
+    background-color: $light-grey;
+}
+
+.heading--restaurant {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px;
+
+    &__icone {
+        font-size: 20px;
+    }
+
+    &__logo {
+        height: 30px;
+    }
+}
+
+.introduction--restaurant {
+    &__img {
+        width: 100%;
+        z-index: 1;
+    }
+}
+
+.menu {
+    background-color: $light-grey;
+    border-radius: 40px 40px 0px 0px;
+    position: relative;
+    z-index: 10;
+    margin-top: -50px;
+
+    &__top {
+        display: flex;
+        align-items: center;
+        padding-top: 10%;
+
+        &__title {
+            @include font-parameters(1.8rem, 100);
+            font-family: Shrikhand;
+        }
+
+        &__icone {
+            margin-left: 15%;
+            font-size: 25px;
+        }
+    }
+
+    &__entree {
+        margin-top: 11%;
+
+        &__top {
+            &__title {
+                text-transform: uppercase;
+                @include font-parameters(1.1rem, 300)
+            }
+        }
+
+        &__allcard {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-top: 5%;
+        }
+
+        &__card {
+            background-color: white;
+            box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            border-radius: 15px;
+            padding: 13px 10px;
+            line-height: 1.5rem;
+
+            &__title {
+                @include font-parameters(1.2rem, 500)
+            }
+
+            &__contenu {
+                display: flex;
+                justify-content: space-between;
+
+                &__text {
+                    @include font-parameters(1rem, 300)
+                }
+
+                &__price {
+                    @include font-parameters($weight: bold);
+                    padding-right: 15px;
+                }
+            }
+        }
+    }
+
+    &__order {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &__btn {
+            @include button-primary($p2: 50px);
+            margin: 12% 0%;
+        }
+    }
+
 }
