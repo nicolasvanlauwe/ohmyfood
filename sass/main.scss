@@ -237,6 +237,11 @@ $police-text: Roboto;
         &__icone {
             font-size: 25px;
             margin-right: 10px;
+
+            &:hover {
+                animation: like .5s;
+                animation-fill-mode: forwards;
+            }
         }
     }
 }
@@ -269,7 +274,7 @@ $police-text: Roboto;
     }
 }
 
-/****************La palette du gout****************/
+/****************Les restaurants****************/
 
 .principal--restaurant {
     background-color: $light-grey;
@@ -311,6 +316,7 @@ $police-text: Roboto;
         display: flex;
         align-items: center;
         padding-top: 10%;
+        justify-content: space-between;
 
         &__title {
             @include font-parameters(1.8rem, 100);
@@ -318,8 +324,13 @@ $police-text: Roboto;
         }
 
         &__icone {
-            margin-left: 15%;
-            font-size: 25px;
+            font-size: 30px;
+            padding-right: 5%;
+
+            &:hover {
+                animation: like .5s;
+                animation-fill-mode: forwards;
+            }
         }
     }
 
@@ -388,4 +399,51 @@ $police-text: Roboto;
         }
     }
 
+}
+
+@keyframes like {
+
+    10% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 10%, rgba(220, 86, 86, 0) 10%);
+        color: transparent;
+        -webkit-background-clip: text;
+    }
+
+    20% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 20%, rgba(220, 86, 86, 0) 20%);
+    }
+
+    30% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 30%, rgba(220, 86, 86, 0) 30%);
+    }
+
+    40% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 40%, rgba(220, 86, 86, 0) 40%);
+    }
+
+    50% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 50%, rgba(220, 86, 86, 0) 50%);
+    }
+
+    60% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 60%, rgba(220, 86, 86, 0) 60%);
+    }
+
+    70% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 70%, rgba(220, 86, 86, 0) 70%);
+    }
+
+    80% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 80%, rgba(220, 86, 86, 0) 80%);
+    }
+
+    90% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 90%, rgba(220, 86, 86, 0) 90%);
+    }
+
+    100% {
+        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 100%);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
 }
