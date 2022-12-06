@@ -26,6 +26,7 @@ $police-text: Roboto;
     border-style: none;
     border-radius: 50px;
     color: white;
+    cursor: pointer;
     @include font-parameters();
 }
 
@@ -45,6 +46,12 @@ $police-text: Roboto;
 
 .padding-main {
     padding: 0 5%;
+}
+
+.html--index,
+.container {
+    overflow-y: hidden;
+    animation: block-load 1ms forwards 3s;
 }
 
 /****************Header****************/
@@ -239,8 +246,7 @@ $police-text: Roboto;
             margin-right: 10px;
 
             &:hover {
-                animation: like .5s;
-                animation-fill-mode: forwards;
+                animation: like .5s forwards;
             }
         }
     }
@@ -328,8 +334,7 @@ $police-text: Roboto;
             padding-right: 5%;
 
             &:hover {
-                animation: like .5s;
-                animation-fill-mode: forwards;
+                animation: like .5s forwards;
             }
         }
     }
@@ -399,6 +404,68 @@ $police-text: Roboto;
         }
     }
 
+}
+
+/****************Les animations****************/
+
+.loading {
+    background-color: $dark-grey;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: display-load 1ms forwards 3s;
+    position: absolute;
+    z-index: 20;
+
+    &__loader {
+        border-top: 10px solid $color-primary;
+        border-bottom: 10px solid $color-secondary;
+        border-right: 10px solid $color-tertiary;
+        border-left: 10px solid #353535;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
+        animation: load 1.5s linear infinite;
+    }
+
+    &__text {
+        margin-top: 4%;
+        font-size: 1.5rem;
+    }
+
+    &__title {
+        font-family: Shrikhand;
+    }
+}
+
+@keyframes load {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes display-load {
+    from {}
+
+    to {
+        overflow: hidden;
+        height: 0vh;
+    }
+}
+
+@keyframes block-load {
+    from {}
+
+    to {
+        overflow-y: visible;
+    }
 }
 
 @keyframes like {
