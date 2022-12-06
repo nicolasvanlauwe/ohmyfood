@@ -1,3 +1,5 @@
+@use "sass:string";
+
 // VARIABLES
 $padbodyfoot: 0 15px;
 $color-primary: #9356DC;
@@ -186,7 +188,7 @@ $police-text: Roboto;
     &__title {
         padding-top: 13%;
         margin-bottom: 6%;
-        @include font-parameters($size: 1.6rem, $weight: 800);
+        @include font-parameters($size: 1.6rem);
     }
 
     &__allcard {
@@ -244,6 +246,12 @@ $police-text: Roboto;
         &__icone {
             font-size: 25px;
             margin-right: 10px;
+
+            &::before {
+                --fa-border-color: green;
+                --fa-border-width: 5px;
+                --fa-border-style: solid;
+            }
 
             &:hover {
                 animation: like .5s forwards;
@@ -332,6 +340,7 @@ $police-text: Roboto;
         &__icone {
             font-size: 30px;
             padding-right: 5%;
+            --fa-border-color: red;
 
             &:hover {
                 animation: like .5s forwards;
@@ -353,6 +362,7 @@ $police-text: Roboto;
                 height: 3px;
                 background-color: $color-tertiary;
                 width: 40px;
+                animation: line 1s ease-out;
             }
         }
 
@@ -363,12 +373,32 @@ $police-text: Roboto;
             margin-top: 5%;
         }
 
+        &__animation {
+            animation: card-appear 1s ease-out forwards;
+        }
+
         &__card {
             background-color: white;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
             border-radius: 15px;
-            padding: 13px 10px;
             line-height: 1.5rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            &:hover :nth-child(2) {
+                animation: menu-selection 1s ease-out forwards;
+            }
+
+
+
+            &__body {
+                padding-left: 10px;
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+            }
 
             &__title {
                 @include font-parameters(1.2rem, 500)
@@ -378,16 +408,36 @@ $police-text: Roboto;
                 display: flex;
                 justify-content: space-between;
 
+
+
                 &__text {
                     @include font-parameters(1rem, 300);
-                    text-overflow: ellipsis;
+                    // text-overflow: ellipsis;
                     white-space: nowrap;
-                    overflow: hidden;
+                    // overflow: hidden;
                 }
 
                 &__price {
+                    padding-right: 20px;
                     @include font-parameters($weight: bold);
-                    padding-right: 15px;
+                }
+            }
+
+            &__check {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: $color-tertiary;
+                border-radius: 0px 15px 15px 0px;
+                height: 70px;
+                width: 18%;
+                overflow: hidden;
+
+                &__icone {
+                    background-color: white;
+                    border-radius: 50px;
+                    color: $color-tertiary;
+                    padding: 2px;
                 }
             }
         }
@@ -469,48 +519,45 @@ $police-text: Roboto;
 }
 
 @keyframes like {
+    @for $i from 0 through 100 {
+        $a: $i +"\%";
 
-    10% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 10%, rgba(220, 86, 86, 0) 10%);
-        color: transparent;
-        -webkit-background-clip: text;
+        #{$a} {
+            background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) #{$a}, rgba(220, 86, 86, 0) #{$a});
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+    }
+}
+
+@keyframes line {
+    from {
+        width: 0px;
     }
 
-    20% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 20%, rgba(220, 86, 86, 0) 20%);
+    to {
+        width: 40px;
+    }
+}
+
+@keyframes card-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
     }
 
-    30% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 30%, rgba(220, 86, 86, 0) 30%);
-    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
 
-    40% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 40%, rgba(220, 86, 86, 0) 40%);
     }
+}
 
-    50% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 50%, rgba(220, 86, 86, 0) 50%);
-    }
+@keyframes menu-selection {
+    from {}
 
-    60% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 60%, rgba(220, 86, 86, 0) 60%);
-    }
-
-    70% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 70%, rgba(220, 86, 86, 0) 70%);
-    }
-
-    80% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 80%, rgba(220, 86, 86, 0) 80%);
-    }
-
-    90% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 90%, rgba(220, 86, 86, 0) 90%);
-    }
-
-    100% {
-        background-image: linear-gradient(0deg, rgba(255, 121, 218, 1) 0%, rgba(147, 86, 220, 1) 100%);
-        -webkit-background-clip: text;
-        color: transparent;
+    to {
+        width: 18%;
+        overflow: visible;
     }
 }
