@@ -198,11 +198,6 @@
   font-size: 25px;
   margin-right: 10px;
 }
-.restaurant__card__icone::before {
-  --fa-border-color: green;
-  --fa-border-width: 5px;
-  --fa-border-style: solid;
-}
 .restaurant__card__icone:hover {
   animation: like 0.5s forwards;
 }
@@ -319,7 +314,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.menu__generic__card:hover :nth-child(2) {
+.menu__generic__card:hover .menu__generic__card__check {
   animation: menu-selection 1s ease-out forwards;
 }
 .menu__generic__card__body {
@@ -339,7 +334,9 @@
 .menu__generic__card__contenu__text {
   font-size: 1rem;
   font-weight: 300;
+  text-overflow: ellipsis;
   white-space: nowrap;
+  overflow: hidden;
 }
 .menu__generic__card__contenu__price {
   padding-right: 20px;
@@ -353,7 +350,7 @@
   background-color: #99E2D0;
   border-radius: 0px 15px 15px 0px;
   height: 70px;
-  width: 18%;
+  width: 0%;
   overflow: hidden;
 }
 .menu__generic__card__check__icone {
