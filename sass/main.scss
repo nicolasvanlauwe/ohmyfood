@@ -1,5 +1,3 @@
-@use "sass:string";
-
 // VARIABLES
 $padbodyfoot: 0 15px;
 $color-primary: #9356DC;
@@ -11,9 +9,7 @@ $light-grey: #f7f7f7;
 $police-title-resto: Shrikhand;
 $police-text: Roboto;
 
-
 // MIXIN
-
 @mixin font-parameters($size: 1rem, $weight: 400) {
     font-size: $size;
 
@@ -38,8 +34,7 @@ $police-text: Roboto;
     color: $color;
 }
 
-//STYLE
-
+//STYLESHEET
 * {
     scroll-behavior: smooth;
     box-sizing: border-box;
@@ -82,7 +77,6 @@ $police-text: Roboto;
     align-items: center;
     justify-content: center;
     animation: display-load 1ms forwards 1s;
-    // a changer pour wait
     position: fixed;
     top: 0;
     left: 0;
@@ -162,9 +156,8 @@ $police-text: Roboto;
 }
 
 .fonctionnement {
-
     &__title {
-        @include font-parameters($size: 1.5rem, $weight: 900);
+        @include font-parameters($size: 1.5rem);
     }
 
     &__allcard {
@@ -231,7 +224,7 @@ $police-text: Roboto;
     &__title {
         padding-top: 13%;
         margin-bottom: 6%;
-        @include font-parameters($size: 1.6rem);
+        @include font-parameters($size: 1.5rem);
     }
 
     &__allcard {
@@ -318,7 +311,6 @@ $police-text: Roboto;
 /****************Footer****************/
 
 .foot {
-
     padding-bottom: 10%;
     color: white;
     background-color: #353535;
@@ -467,7 +459,6 @@ $police-text: Roboto;
             &--dessert {
                 animation: card-appear 1s ease-out .5s forwards;
             }
-
         }
 
         &__card {
@@ -518,7 +509,6 @@ $police-text: Roboto;
 
             &:hover .menu__generic__card__check {
                 animation: menu-selection .6s ease-out forwards;
-
             }
 
             &:hover .menu__generic__card__check__icone {
@@ -783,7 +773,6 @@ $police-text: Roboto;
     to {
         opacity: 1;
         transform: translateY(0);
-
     }
 }
 
@@ -801,8 +790,6 @@ $police-text: Roboto;
     to {
         $lighten1: lighten(rgba(255, 121, 218, 1), 5%);
         $lighten2: lighten(rgba(147, 86, 220, 1), 5%);
-
-
         background: linear-gradient(175deg, #{$lighten1} 0%, #{$lighten2} 94%);
         box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
     }
