@@ -1,5 +1,4 @@
 // VARIABLES
-$padbodyfoot: 0 15px;
 $color-primary: #9356DC;
 $color-secondary: #FF79DA;
 $color-tertiary: #99E2D0;
@@ -38,7 +37,7 @@ $police-text: Roboto;
 * {
     scroll-behavior: smooth;
     box-sizing: border-box;
-    font-family: Roboto;
+    font-family: $police-text;
     letter-spacing: 0px;
 }
 
@@ -101,7 +100,7 @@ $police-text: Roboto;
     }
 
     &__title {
-        font-family: Shrikhand;
+        font-family: $police-title-resto;
     }
 }
 
@@ -320,7 +319,7 @@ $police-text: Roboto;
 
     &__title {
         margin: 7% 0% 4% 0%;
-        font-family: Shrikhand;
+        font-family: $police-title-resto;
         @include font-parameters($size: 1.3rem, $weight: 100)
     }
 
@@ -387,7 +386,7 @@ $police-text: Roboto;
 
         &__title {
             @include font-parameters(1.8rem, 100);
-            font-family: Shrikhand;
+            font-family: $police-title-resto;
         }
 
         &__icone {
