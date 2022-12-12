@@ -739,18 +739,6 @@ $police-text: Roboto;
     }
 }
 
-@keyframes disapear-like {
-    from {
-        display: none;
-        overflow: hidden;
-    }
-
-    to {
-        display: none;
-        overflow: hidden;
-    }
-}
-
 @keyframes line {
     from {
         opacity: 1;
